@@ -10,8 +10,10 @@ logs/
 *.log.*
 
 # Environment variables
+/env
 .env
 .env.*
+
 
 # Build outputs
 dist/
@@ -40,3 +42,5 @@ __pycache__/
 *.zip
 *.tar.gz
 *.rar
+
+
