@@ -10,8 +10,8 @@
         <th scope="col">Título</th>
         <th scope="col">Descripción</th>
         <th scope="col">Resultado</th>
-        <th scope="col">Probabilidad Real</th>
-        <th scope="col">Probabilidad Fake</th>
+        <th scope="col" style="text-align: center;">Probabilidad Real</th>
+        <th scope="col" style="text-align: center;">Probabilidad Fake</th>
       </tr>
     </thead>
     <tbody>
@@ -19,9 +19,9 @@
         <th scope="row">{{ i + 1 }}</th>
         <td>{{ response.titulo }}</td>
         <td>{{ response.descripcion }}</td>
-        <td>{{ response.resultado === 1 ? 'Real' : 'Fake' }}</td>
-        <td>{{ response.probabilidad.real }}</td>
-        <td>{{ response.probabilidad.fake }}</td>
+        <td>{{ response.resultado === 1 ? 'Fake' : 'Real' }}</td>
+        <td>{{ response.probabilidad.real | number:'1.2-2' }}</td>
+        <td>{{ response.probabilidad.fake | number:'1.2-2' }}</td>
       </tr>
     </tbody>
   </table>
