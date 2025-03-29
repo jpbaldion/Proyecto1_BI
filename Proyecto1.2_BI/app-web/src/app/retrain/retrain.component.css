@@ -23,3 +23,20 @@
   label, input {
     color: white;
   }	
+
+  p{
+    color: white;
+  }
+
+  .spinner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 10px;
+  }

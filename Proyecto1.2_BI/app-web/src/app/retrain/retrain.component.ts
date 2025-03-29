@@ -12,6 +12,7 @@ export class RetrainComponent {
   statusMessage: string = '';
   retrainDisabled: boolean = true;
   metricas: any = null;  // Propiedad para almacenar las métricas
+  isLoading: boolean = false; // Indica si el proceso está en curso
 
   constructor(private appService: AppService) {}
 
@@ -48,9 +49,11 @@ export class RetrainComponent {
       return;
     }
 
+    this.isLoading = true; // Activar el estado de carga
+    this.statusMessage = '';
+
     // Leer y procesar el archivo CSV usando PapaParse
     this.parseCSV(this.csvFile).then((data) => {
-      // Crear el objeto JSON que el backend espera
       const noticias = data.map((row: any) => ({
         titulo: row.Titulo,
         descripcion: row.Descripcion,
@@ -60,15 +63,18 @@ export class RetrainComponent {
       // Llamar al servicio para reentrenar el modelo
       this.appService.reentrenarModelo(noticias).subscribe(
         (response) => {
-          this.statusMessage = response.mensaje;  // Mostrar el mensaje de éxito
-          this.metricas = response.metricas;  // Almacenar las métricas en la propiedad
+          this.statusMessage = response.mensaje; // Mostrar el mensaje de éxito
+          this.metricas = response.metricas; // Almacenar las métricas
+          this.isLoading = false; // Desactivar el estado de carga
         },
         (error) => {
           this.statusMessage = `Error: ${error.message}`;
+          this.isLoading = false; // Desactivar el estado de carga
         }
       );
     }).catch((error) => {
       this.statusMessage = `Error al procesar el archivo CSV: ${error.message}`;
+      this.isLoading = false; // Desactivar el estado de carga
     });
   }
 }

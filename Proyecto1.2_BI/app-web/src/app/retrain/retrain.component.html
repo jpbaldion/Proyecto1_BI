@@ -3,54 +3,65 @@
     <h1>Reentrenar el Modelo de Fake News</h1>
   
     <!-- Formulario para seleccionar archivo CSV -->
-    <form style="display: flex; flex-direction: column; align-items: center;">
-      <label for="csvFile" class="form-label">Selecciona un archivo CSV:</label>
+    <form style="display: flex; flex-direction: column; align-items: center;" class="mt-5">
+      <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20px;">
+        <label for="csvFile" class="form-label">Selecciona un archivo CSV:</label>
+        <input type="file" class="form-control" (change)="onFileChange($event)" accept=".csv" />
+      </div>
+      
+      <!-- Spinner de carga -->
+      <div *ngIf="isLoading" class="spinner-container">
+        <div class="spinner-border text-light" role="status">
+          <span class="visually-hidden">Cargando...</span>
+        </div>
+        <p>Reentrenando el modelo, por favor espera...</p>
+      </div>
 
-      <input type="file" (change)="onFileChange($event)" accept=".csv" />
-    
       <!-- Mensaje de estado -->
       <div *ngIf="statusMessage" class="status-message">{{ statusMessage }}</div>
     
       <!-- Botón para reentrenar el modelo -->
-      <button [disabled]="retrainDisabled" (click)="onRetrainClick()">Reentrenar Modelo</button>
+      <button class="btn btn-light" [disabled]="retrainDisabled" (click)="onRetrainClick()">Reentrenar Modelo</button>
     </form>
   
     <!-- Mostrar las métricas después de reentrenar -->
     <div *ngIf="metricas" class="container mt-4">
       <h2>Métricas del Modelo</h2>
-      <div>
-        <h3>Clase 0 (Real)</h3>
-        <p>Precision: {{ metricas['0'].precision }}</p>
-        <p>Recall: {{ metricas['0'].recall }}</p>
-        <p>F1-Score: {{ metricas['0']['f1-score'] }}</p>
-        <p>Support: {{ metricas['0'].support }}</p>
+      <div class="row g-3">
+        <div class="col-sm-12 col-md-6">
+          <h3>Clase 0 (Real)</h3>
+          <p>Precision: {{ metricas['0'].precision }}</p>
+          <p>Recall: {{ metricas['0'].recall }}</p>
+          <p>F1-Score: {{ metricas['0']['f1-score'] }}</p>
+          <p>Support: {{ metricas['0'].support }}</p>
+        </div>
+    
+        <div class="col-sm-12 col-md-6">
+          <h3>Clase 1 (Fake)</h3>
+          <p>Precision: {{ metricas['1'].precision }}</p>
+          <p>Recall: {{ metricas['1'].recall }}</p>
+          <p>F1-Score: {{ metricas['1']['f1-score'] }}</p>
+          <p>Support: {{ metricas['1'].support }}</p>
+        </div>
+    
+        <div div class="col-12">
+          <p><strong>Accuracy: </strong>  {{ metricas['accuracy'] }}</p>
+        </div>
+    
+        <div class="col-sm-12 col-md-6">
+          <h3>Macro Average</h3>
+          <p>Precision: {{ metricas['macro avg'].precision }}</p>
+          <p>Recall: {{ metricas['macro avg'].recall }}</p>
+          <p>F1-Score: {{ metricas['macro avg']['f1-score'] }}</p>
+        </div>
+    
+        <div class="col-sm-12 col-md-6">
+          <h3>Weighted Average</h3>
+          <p>Precision: {{ metricas['weighted avg'].precision }}</p>
+          <p>Recall: {{ metricas['weighted avg'].recall }}</p>
+          <p>F1-Score: {{ metricas['weighted avg']['f1-score'] }}</p>
+        </div>
       </div>
-  
-      <div>
-        <h3>Clase 1 (Fake)</h3>
-        <p>Precision: {{ metricas['1'].precision }}</p>
-        <p>Recall: {{ metricas['1'].recall }}</p>
-        <p>F1-Score: {{ metricas['1']['f1-score'] }}</p>
-        <p>Support: {{ metricas['1'].support }}</p>
       </div>
-  
-      <div>
-        <h3>Accuracy: {{ metricas['accuracy'] }}</h3>
-      </div>
-  
-      <div>
-        <h3>Macro Average</h3>
-        <p>Precision: {{ metricas['macro avg'].precision }}</p>
-        <p>Recall: {{ metricas['macro avg'].recall }}</p>
-        <p>F1-Score: {{ metricas['macro avg']['f1-score'] }}</p>
-      </div>
-  
-      <div>
-        <h3>Weighted Average</h3>
-        <p>Precision: {{ metricas['weighted avg'].precision }}</p>
-        <p>Recall: {{ metricas['weighted avg'].recall }}</p>
-        <p>F1-Score: {{ metricas['weighted avg']['f1-score'] }}</p>
-      </div>
-    </div>
   </div>
   
