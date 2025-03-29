@@ -16,6 +16,17 @@ df_train = df_train.drop_duplicates()
 # Inicializar la aplicación FastAPI
 app = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Cambiar "*" por los dominios permitidos en producción
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 # Modelo de datos para una noticia
 class Noticia(BaseModel):
     titulo: str
