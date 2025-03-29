@@ -24,5 +24,8 @@ export class AppService {
   getPredictionData() {
     return this.predicctionData;
   }
-  
+
+  reentrenarModelo(data: any[]): Observable<any> {
+    return this.httpClient.post(`${this.apiUrl}reentrenar/`, data);
+  }
 }
