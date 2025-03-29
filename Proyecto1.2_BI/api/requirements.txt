@@ -1,0 +1,11 @@
+fastapi==0.115.12
+inflect==7.5.0
+joblib
+matplotlib
+nltk
+numpy 
+pandas 
+pydantic==2.10.6
+scikit-learn 
+seaborn 
+uvicorn==0.34.0
