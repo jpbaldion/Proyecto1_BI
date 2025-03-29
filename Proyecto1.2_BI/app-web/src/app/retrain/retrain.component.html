@@ -2,16 +2,20 @@
     <h1>Reentrenar el Modelo de Fake News</h1>
   
     <!-- Formulario para seleccionar archivo CSV -->
-    <input type="file" (change)="onFileChange($event)" accept=".csv" />
-  
-    <!-- Mensaje de estado -->
-    <div *ngIf="statusMessage" class="status-message">{{ statusMessage }}</div>
-  
-    <!-- Botón para reentrenar el modelo -->
-    <button [disabled]="retrainDisabled" (click)="onRetrainClick()">Reentrenar Modelo</button>
+    <form style="display: flex; flex-direction: column; align-items: center;">
+      <label for="csvFile" class="form-label">Selecciona un archivo CSV:</label>
+
+      <input type="file" (change)="onFileChange($event)" accept=".csv" />
+    
+      <!-- Mensaje de estado -->
+      <div *ngIf="statusMessage" class="status-message">{{ statusMessage }}</div>
+    
+      <!-- Botón para reentrenar el modelo -->
+      <button [disabled]="retrainDisabled" (click)="onRetrainClick()">Reentrenar Modelo</button>
+    </form>
   
     <!-- Mostrar las métricas después de reentrenar -->
-    <div *ngIf="metricas">
+    <div *ngIf="metricas" class="container mt-4">
       <h2>Métricas del Modelo</h2>
       <div>
         <h3>Clase 0 (Real)</h3>

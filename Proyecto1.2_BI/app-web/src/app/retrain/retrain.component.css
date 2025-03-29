@@ -6,7 +6,7 @@
   .status-message {
     margin-top: 10px;
     font-weight: bold;
-    color: green;
+    color: white;
   }
   
   button {
@@ -16,3 +16,10 @@
     cursor: pointer;
   }
   
+  h3, h2, h1	{
+    color: white;
+  }
+
+  label, input {
+    color: white;
+  }	
