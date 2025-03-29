@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { PredictComponent } from './predict.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarModule } from '../Navbar/Navbar.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NavbarModule
   ],
   declarations: [PredictComponent]
 })

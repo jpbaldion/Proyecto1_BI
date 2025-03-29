@@ -1,0 +1,37 @@
+a{
+    color: white;
+    transition: scale 0.3s ease, color 0.3s ease;
+}
+
+a:hover{
+    color: #DEF0C0 !important;
+    scale: 1.1;
+}
+
+.active{
+    color: #DEF0C0 !important;
+    scale: 1.1;
+}
+
+#navbarNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#navbarNav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.navbar{
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    margin-top: 1em !important;
+    width: 95%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 50em;
+}

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InicioComponent } from './Inicio.component';
-import { AppRoutingModule } from '../app-routing.module';
+import { NavbarComponent } from './Navbar.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -9,6 +8,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule
   ],
-  declarations: [InicioComponent]
+  exports: [NavbarComponent],
+  declarations: [NavbarComponent]
 })
-export class InicioModule { }
+export class NavbarModule { }

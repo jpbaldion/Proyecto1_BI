@@ -9,21 +9,24 @@ import { RetrainComponent } from './retrain/retrain.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { NavbarModule } from './Navbar/Navbar.module';
+import { InicioModule } from './Inicio/Inicio.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent,
     RetrainComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    InicioModule,
     PredictModule,
     PredictResultsModule,
     FormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    NavbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
