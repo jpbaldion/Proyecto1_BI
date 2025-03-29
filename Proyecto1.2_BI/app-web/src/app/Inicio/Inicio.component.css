@@ -1,0 +1,49 @@
+img{
+    width: 50%;
+    min-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+p{
+    color: white;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.col-6{
+    padding: 2em;
+}
+
+
+
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    margin-top: 2em;
+    padding: 0 1em;
+}
+
+.button-container button{
+    font-weight: bold;
+    flex: 1;
+}
