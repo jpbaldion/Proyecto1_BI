@@ -38,3 +38,4 @@ Ir al Directorio del Front
 
  **La aplicación estará disponible en:** [http://localhost:4200](http://localhost:4200)
 
+Documento en la carpeta Proyecto1_BI/Documento-Proyecto-1-Etapa-2.pdf
