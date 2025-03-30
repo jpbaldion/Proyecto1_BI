@@ -66,6 +66,8 @@ def predecir_noticias(noticias: List[Noticia]):
 
 # Modificar la función de reentrenamiento
 def reentrenar(nuevas_noticias: List[Noticia]):
+    global pipeline  # Declarar que se usará la variable global pipeline
+
     if not nuevas_noticias:
         raise HTTPException(status_code=400, detail="La lista de noticias no puede estar vacía")
 
@@ -108,7 +110,8 @@ def reentrenar(nuevas_noticias: List[Noticia]):
     reporte = classification_report(y_true, y_pred, output_dict=True)
 
     # Exportar el modelo actualizado
-    joblib.dump(pipeline, 'modelo_fake_news_actualizado.joblib')
+    joblib.dump(pipeline, 'modelo_fake_news.joblib')
+    pipeline = joblib.load('modelo_fake_news.joblib')
 
     return {
         "mensaje": "Modelo reentrenado y actualizado exitosamente",
